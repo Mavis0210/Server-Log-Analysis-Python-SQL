@@ -1,5 +1,6 @@
 # Apache Server Log ETL Pipeline (Python \& SQL)
 
+[![Python CI](https://github.com/Mavis0210/Apache-Log-ETL-Pipeline/actions/workflows/python-ci.yml/badge.svg)](https://github.com/Mavis0210/Apache-Log-ETL-Pipeline/actions/workflows/python-ci.yml)
 
 ### Project Overview
 
@@ -17,14 +18,14 @@ Raw server logs are messy, unstructured text files. Analyzing them manually to f
 
 I developed a Python script that:
 
-1. **Extracts:** Fetches raw log data from a remote URL using requests.
-2. **Parses:** Cleaned unstructured text data by splitting log lines into structured fields (IP, Date, Endpoint, Status).
-3. **Transforms:**  Used Pandas to convert status codes to integers and handle missing values.
-4. **Loads:** Saved the structured data into a local SQLite database (`production_logs.db`) for querying.
-5. **Analyzes:** Generated charts using Seaborn to identify critical system errors (404/500 status codes).
+1. Extract – Downloads Apache server logs from a remote GitHub source using the Requests library.
+2. Parse – Converts raw log entries into structured fields (IP address, timestamp, HTTP method, endpoint, status code and response size).
+3. Transform – Cleans and converts the data using Pandas.
+4. Load – Stores the processed data in a SQLite database using SQLAlchemy.
+5. Analyse – Produces SQL reports and visualises HTTP error distributions using Matplotlib and Seaborn.
 
 
-### The Solution
+### Continuous Integration
 
 This project uses GitHub Actions to automate code validation.
 
@@ -66,12 +67,15 @@ This helps ensure that code changes do not introduce syntax errors before furthe
     
 
 ### Repository Structure
+
+```text
 Apache-Log-ETL-Pipeline
-    │
-    ├── .github/
-    │   └── workflows/
-    │       └── python-ci.yml
-    ├── server_log_pipeline.py
-    ├── requirements.txt
-    ├── README.md
-    └── production_logs.db  
+│
+├── .github/
+│   └── workflows/
+│       └── python-ci.yml
+├── server_log_pipeline.py
+├── requirements.txt
+├── README.md
+└── production_logs.db
+```
