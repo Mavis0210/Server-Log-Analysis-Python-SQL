@@ -77,5 +77,5 @@ Apache-Log-ETL-Pipeline
 ├── server_log_pipeline.py
 ├── requirements.txt
 ├── README.md
-└── production_logs.db
+
 ```
